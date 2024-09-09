@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RandomView from "@/views/RandomView.vue";
 import GetHolidaysView from "@/views/GetHolidaysView.vue";
+import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 
 const router = createRouter({
@@ -18,7 +19,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: AboutView
     },
     {
       path: '/randomDays',

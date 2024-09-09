@@ -1,28 +1,33 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterLink, RouterView} from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import MainMenu from "@/components/Menu.vue";
 //import MainMenu from "@/components/Menu.vue";
+
 
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <MainMenu></MainMenu>
 
-    <div class="wrapper">
-      <HelloWorld msg="W. to Close Days / Year !" />
+  <header class="columns-2">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/randomDays">Metropole Holidays</RouterLink>
-        <RouterLink to="/holidaysView">Get Holidays</RouterLink>
-        <RouterLink to="/contactView">Contact</RouterLink>
-      </nav>
+
+    <div class="w-full aspect-square">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
+      <div class="wrapper">
+        <HelloWorld msg="W. to Close Days / Year !" />
+      </div>
+
     </div>
+
+    <div class="w-full aspect-square ">
+        <RouterView />
+    </div>
+
   </header>
 
-  <RouterView />
+
 </template>
 
 <style scoped>

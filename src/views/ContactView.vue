@@ -1,89 +1,79 @@
-<script setup>
-import { ref } from 'vue'
-
-const zone = ref('')
-const annee = ref('')
-</script>
-
 <template>
 
   <div class="about">
     <h1>Contact View</h1>
 
+    <div id="app">
+      <form>
 
-    <form id="app" @submit="checkForm" method="post" action="#">
-      <p>Sélectionner {{zone}}</p>
-      <select v-model="zone" name="zone">
-        <option disabled value="">Choisissez une zone</option>
-        <option value="metropole">Metropole</option>
-        <option value="saint-martin">Saint-martin</option>
-        <option value="guadeloupe">Guadeloupe</option>
-      </select>
+        <p v-if="errors.length">
+          <b>Veuillez corrigé les erreurs suivantes:</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </p>
 
-      <p>Année {{annee}}</p>
-      <input v-model.number="annee" type="number" name="annee"  placeholder="Enter a year" />
+        <p>Nom : {{name}}</p>
+        <textarea v-model="name"  name="name"  placeholder="Entrer votre nom" />
+
+        <p>Message {{email}}</p>
+        <textarea v-model="email"  name="email"  placeholder="Entrer votre mail" />
+
+        <p>Message</p>
+        <textarea v-model="message"  name="message"  placeholder="Entrer votre message" />
 
 
-      <button type="submit">Envoyer la demande</button>
-    </form>
-
-
-    <div class="show-data-scroll">
-
-      <pre v-if="days">
-        <ul>
-          <li v-for="(day, index) in days">
-            {{index}} : {{day}}
-          </li>
-        </ul>
-      </pre>
-
+        <button type="submit" @click="submit">Envoyer la demande</button>
+      </form>
     </div>
+
   </div>
 
 </template>
 
 
 <script>
-import axios from "axios";
+
+import MainMenu from "@/components/Menu.vue";
 
 export default{
-  data(){
-    return {
-      days : [],
-    };
+  components: {MainMenu},
+  el: '#app',
+  data() {
+    return{
+      errors: [],
+      name: null,
+      email: null,
+      message: null,
+    }
   },
-
-  // Wait to call method to get data
   methods: {
-    checkForm(){
+    submit() {
+      this.errors = [];
 
-      let zone = null;
-      this.$refs.zone.value ? zone = this.$refs.zone.value : zone = false;
+      console.log('Nom', this.name);
+      console.log('Email', this.email);
+      console.log('Message', this.message);
 
-      let annee = null;
-      this.$refs.annee.value ? annee = this.$refs.annee.value : annee = false;
-
-      console.log(annee);
-      console.log(zone);
-
-      let url =  'https://calendrier.api.gouv.fr/jours-feries/';
-      console.log(url);
-
-      if(zone && annee){
-        url += zone+'/'+annee+'.json';
+      if(!this.name){
+        this.errors.push('Nom nécessaire.');
+      }
+      if(!this.email){
+        this.errors.push('Email nécessaire.');
+      }
+      if(!this.message){
+        this.errors.push('Message nécessaire.');
       }
 
-      if(zone && !annee){
-        url += zone+'.json';
+      if(!this.errors.length){
+        this.$router.push('/holidaysView');
+        return true;
       }
-
-      this.days = axios.get(url).then(response => {this.days = response.data})
-      console.log(this.days)
 
     }
   },
 };
+
 
 </script>
 
