@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RandomView from "@/views/RandomView.vue";
+import GetHolidaysView from "@/views/GetHolidaysView.vue";
+import ContactView from "@/views/ContactView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +24,17 @@ const router = createRouter({
       path: '/randomDays',
       name: 'randomDays',
       component: RandomView
-    }
+    },
+    {
+      path: '/holidaysView',
+      name: 'holidaysView',
+      component: GetHolidaysView
+    },
+    {
+      path: '/contactView',
+      name: 'contactView',
+      component: ContactView
+    },
   ]
 })
 

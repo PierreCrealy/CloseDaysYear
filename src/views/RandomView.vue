@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is random view</h1>
+    <h1>Random Holidays View</h1>
 
 
     <button @click="fetchData">Get data</button>
