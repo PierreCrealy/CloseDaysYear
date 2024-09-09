@@ -11,34 +11,32 @@ const annee = ref('')
     <h1>Contact View</h1>
 
 
-    <div class="form">
-
-      <select name="zone" ref="zone">
+    <form id="app" @submit="checkForm" method="post" action="#">
+      <p>Sélectionner {{zone}}</p>
+      <select v-model="zone" name="zone">
         <option disabled value="">Choisissez une zone</option>
         <option value="metropole">Metropole</option>
         <option value="saint-martin">Saint-martin</option>
         <option value="guadeloupe">Guadeloupe</option>
       </select>
 
-      <input type="number" name="annee" ref="annee" placeholder="Enter a year" />
-
-      <!--
       <p>Année {{annee}}</p>
-      <input v-model.number="annee" type="number" name="annee" ref="annee" placeholder="Enter a year" />
-      -->
+      <input v-model.number="annee" type="number" name="annee"  placeholder="Enter a year" />
 
-      <button @click="checkForm()">Envoyer la demande</button>
-    </div>
+
+      <button type="submit">Envoyer la demande</button>
+    </form>
+
 
     <div class="show-data-scroll">
 
       <pre v-if="days">
-      <ul>
-        <li v-for="(day, index) in days">
-          {{index}} : {{day}}
-        </li>
-      </ul>
-    </pre>
+        <ul>
+          <li v-for="(day, index) in days">
+            {{index}} : {{day}}
+          </li>
+        </ul>
+      </pre>
 
     </div>
   </div>

@@ -11,22 +11,19 @@ const annee = ref('')
     <h1>Holidays View</h1>
 
 
-    <form id="app" @submit="checkForm" method="post" action="#">
-      <p>Sélectionner {{zone}}</p>
-      <select v-model="zone" name="zone" ref="zone">
+    <div class="form">
+
+      <select name="zone" ref="zone">
         <option disabled value="">Choisissez une zone</option>
         <option value="metropole">Metropole</option>
         <option value="saint-martin">Saint-martin</option>
         <option value="guadeloupe">Guadeloupe</option>
       </select>
 
-      <p>Année {{annee}}</p>
-      <input v-model.number="annee" type="number" name="annee"  placeholder="Enter a year" />
+      <input type="number" name="annee" ref="annee" placeholder="Enter a year" />
 
-
-      <button type="submit">Envoyer la demande</button>
-    </form>
-
+      <button @click="checkForm()">Envoyer la demande</button>
+    </div>
 
     <div class="show-data-scroll">
 
@@ -67,15 +64,15 @@ export default{
       console.log(annee);
       console.log(zone);
 
-      let url =  'https://calendrier.api.gouv.fr/jours-feries/';
+      let url =  ``;
       console.log(url);
 
       if(zone && annee){
-        url += zone+'/'+annee+'.json';
+        url =  `https://calendrier.api.gouv.fr/jours-feries/${zone}/${annee}.json`;
       }
 
       if(zone && !annee){
-        url += zone+'.json';
+        url =  `https://calendrier.api.gouv.fr/jours-feries/${zone}.json`;
       }
 
       this.days = axios.get(url).then(response => {this.days = response.data})
