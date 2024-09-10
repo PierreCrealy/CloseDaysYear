@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
 import ListItem from "@/components/useful/ListItem.vue";
+import Quote from "@/components/useful/Quote.vue";
 </script>
 
 <template>
@@ -41,6 +42,9 @@ import ListItem from "@/components/useful/ListItem.vue";
       </dl>
     </div>
   </div>
+
+
+  <Quote class="mt-20" author="John Smith" status="Missing..." text="Il suffit que je cours plus vite que vous..."/>
 
 
 </template>

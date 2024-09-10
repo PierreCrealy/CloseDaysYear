@@ -62,30 +62,14 @@ const listAreas = [
 
   </div>
 
+
   <!-- List display 2 -->
-  <div class="mt-10 mb-10">
+  <div class="mt-14 mb-10">
     <ol class="items-center sm:flex overflow-x-scroll">
       <TimeLine v-for="(day, index) in days" :key="day" v-bind:title="index" v-bind:text="day"  />
     </ol>
   </div>
 
-
-
-  <!-- List display 1 -->
-  <div class="grid justify-items-stretch">
-    <div class="px-4 sm:px-0">
-      <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-        ...
-      </p>
-    </div>
-    <div class="mt-6 border-t border-gray-100">
-      <dl class="divide-y divide-gray-100">
-
-        <ListItem v-for="(day, index) in days" :key="day" v-bind:title="index" v-bind:text="day"  />
-
-      </dl>
-    </div>
-  </div>
 
 </template>
 
