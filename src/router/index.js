@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RandomView from "@/views/RandomView.vue";
-import GetHolidaysView from "@/views/GetHolidaysView.vue";
+import GetHolidaysView from "@/views/HolidaysView.vue";
 import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 
