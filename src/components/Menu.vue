@@ -10,12 +10,12 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <RouterLink to="/"><a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a></RouterLink>
                 <RouterLink to="/about"><a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a></RouterLink>
                 <RouterLink to="/randomDays"><a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Metropole Holidays</a></RouterLink>
                 <RouterLink to="/holidaysView"><a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">View Holidays</a></RouterLink>
                 <RouterLink to="/contactView"><a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a></RouterLink>
+                <RouterLink to="/exampleView"><a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Example</a></RouterLink>
               </div>
             </div>
           </div>
@@ -50,7 +50,9 @@
 
     <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+
+        </h1>
       </div>
     </header>
 
@@ -59,3 +61,5 @@
 
 
 </template>
+<script setup lang="ts">
+</script>

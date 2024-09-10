@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import ListItem from "@/components/useful/ListItem.vue";
+import TimeLine from "@/components/useful/TimeLine.vue";
 
 const area = ref('');
 const year = ref('');
@@ -49,7 +50,7 @@ const listAreas = [
       <div class="mt-2">
         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
           <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">closeDaysYear.fr/</span>
-          <input type="text" name="year" ref="year" id="year" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
+          <input type="number" name="year" ref="year" id="year" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
         </div>
       </div>
     </div>
@@ -61,10 +62,17 @@ const listAreas = [
 
   </div>
 
+  <!-- List display 2 -->
+  <div class="mt-10 mb-10">
+    <ol class="items-center sm:flex overflow-x-scroll">
+      <TimeLine v-for="(day, index) in days" :key="day" v-bind:title="index" v-bind:text="day"  />
+    </ol>
+  </div>
 
-  <!-- List display -->
+
+
+  <!-- List display 1 -->
   <div class="grid justify-items-stretch">
-
     <div class="px-4 sm:px-0">
       <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
         ...

@@ -1,9 +1,8 @@
 <script setup>
-import UserProfile from "@/components/UserProfile.vue";
-
+import Quote from "@/components/useful/Quote.vue";
 </script>
 
 <template>
-
+  <Quote author="John Smith" status="Missing..." text="Il suffit que je cours plus vite que vous..."/>
 
 </template>
