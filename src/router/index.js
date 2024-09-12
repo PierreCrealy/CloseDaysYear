@@ -5,7 +5,7 @@ import GetHolidaysView from "@/views/HolidaysView.vue";
 import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 import StoreView from "@/views/StoreView.vue";
-import ExampleView from "@/views/ExampleView.vue";
+import TestingView from "@/views/TestingView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,9 +44,9 @@ const router = createRouter({
       component: StoreView
     },
     {
-      path: '/exampleView',
-      name: 'exampleView',
-      component: ExampleView
+      path: '/testingView',
+      name: 'testingView',
+      component: TestingView
     },
   ]
 })
