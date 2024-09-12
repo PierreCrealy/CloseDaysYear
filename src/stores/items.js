@@ -1,18 +1,41 @@
 import { defineStore } from "pinia";
 
+// Create new store
 export const useItemsStore = defineStore('items', {
-    state: () => ({count: 0, name: 'Item 1'}),
-    getters: {
-        doubleCount: (state) => state.count * 2,
-    },
-    actions: {
-        increment(){
-            this.count++
-        },
-        setName(newName){
-            this.name = newName;
-        }
+    // Store attributes
+    state: () => ({
 
+        items : [
+            {
+                count : 5,
+                name: 'item 1',
+                price: 10,
+            },
+            {
+                count : 2,
+                name: 'item 2',
+                price: 8,
+            },
+        ],
+    }),
+
+    // Store actions / functions
+    actions: {
+
+        increment(itemNb){
+          this.items[itemNb].count++;
+        },
+
+        add(newItem){
+            console.log(newItem);
+            this.items.push(
+                {
+                    count : newItem.count,
+                    name : newItem.name,
+                    price : newItem.price,
+                }
+            );
+        },
     }
 
 })

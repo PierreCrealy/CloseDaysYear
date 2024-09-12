@@ -1,5 +1,4 @@
 <script setup>
-import Quote from "@/components/useful/Quote.vue";
 import FeatureSection from "@/components/useful/FeatureSection.vue";
 import PricingSection from "@/components/useful/PricingSection.vue";
 

@@ -1,18 +1,22 @@
 <template>
 
-  <form>
+  <!-- Contact form  -->
+  <form @submit.prevent="submit">
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
         <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
+
+        <!-- Display errors if there any one -->
         <p class="mt-1 text-sm leading-6 text-gray-600">
           <span v-if="errors.length">
-            <b>Please. Correct the error(s).</b>
+            <b>Please, correct error(s).</b>
             <ul>
               <li v-for="error in errors" :key="error" >{{ error }}</li>
             </ul>
           </span>
         </p>
 
+        <!-- Username -->
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <label for="username" class="block text-sm font-medium leading-6 text-gray-900">
@@ -26,6 +30,7 @@
             </div>
           </div>
 
+          <!-- Mail -->
           <div class="sm:col-span-3">
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
               Email address : <span class="text-sm text-gray-600"> {{email}}</span>
@@ -36,6 +41,7 @@
           </div>
         </div>
 
+        <!-- Message -->
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="col-span-full">
             <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Message </label>
@@ -49,11 +55,13 @@
       </div>
     </div>
 
+    <!-- Validation button -->
     <div class="mt-6 flex items-center justify-end gap-x-6">
-      <button type="submit" @click="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         Send
       </button>
     </div>
+
   </form>
 
 </template>
@@ -72,12 +80,12 @@ export default{
   },
   methods: {
     submit() {
-      //this.errors = [];
 
       console.log('Username', this.username);
       console.log('Email', this.email);
       console.log('Message', this.message);
 
+      // Check all fields
       if(!this.username){
         this.errors.push('Username required.');
       }
@@ -88,6 +96,7 @@ export default{
         this.errors.push('Message required.');
       }
 
+      // If no errors
       if(!this.errors.length){
         this.$router.push('/contactView');
         return true;

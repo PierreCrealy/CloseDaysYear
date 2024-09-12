@@ -1,14 +1,11 @@
 <template>
 
-
-
   <div class="grid justify-items-stretch">
-
 
     <div class="px-4 sm:px-0">
       <h3 class="text-base font-semibold leading-7 text-gray-900">Random Holidays</h3>
       <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" @click="fetchData">
+        <button @click="getRandomHollidays" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
           Get random holidays
         </button>
       </p>
@@ -16,13 +13,13 @@
         {{year}}.
       </p>
     </div>
+
     <div class="mt-6 border-t border-gray-100">
       <dl class="divide-y divide-gray-100">
-
         <ListItem v-for="(day, index) in days" :key="day" v-bind:title="index" v-bind:text="day"  />
-
       </dl>
     </div>
+
   </div>
 
 </template>
@@ -43,8 +40,9 @@ export default{
 
   // Wait to call method to get data
   methods: {
-    fetchData(){
+    getRandomHollidays(){
 
+    // Random by area
     /*
       const zones = [
           'alsace-moselle',
@@ -71,26 +69,20 @@ export default{
       */
 
 
+      // Random by year
       this.year =  Math.floor(Math.random() * (2028 - 2010) + 2010 ) ;
       const url =  `https://calendrier.api.gouv.fr/jours-feries/metropole/${this.year}.json`;
 
       this.days = axios.get(url).then(response => {this.days = response.data})
       console.log(this.days)
 
-      //const response = await fetch('https://randomuser.me/api/');
-      //this.data = response.json();
+      // Other method to make http request
+      // const response = await fetch('https://randomuser.me/api/');
+      // this.data = response.json();
 
     }
   }
 
-  // Get instantly data from http request
-  /*
-    mounted() {
-      //this.days = axios.get('https://randomuser.me/api/').then(response => {this.days = response.data.results})
-      this.days = axios.get('https://calendrier.api.gouv.fr/jours-feries/metropole.json').then(response => {this.days = response.data})
-      console.log(this.days)
-    },
-  */
 };
 
 </script>

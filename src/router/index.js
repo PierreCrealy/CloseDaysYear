@@ -4,6 +4,7 @@ import RandomView from "@/views/RandomView.vue";
 import GetHolidaysView from "@/views/HolidaysView.vue";
 import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
+import StoreView from "@/views/StoreView.vue";
 import ExampleView from "@/views/ExampleView.vue";
 
 const router = createRouter({
@@ -36,6 +37,11 @@ const router = createRouter({
       path: '/contactView',
       name: 'contactView',
       component: ContactView
+    },
+    {
+      path: '/storeView',
+      name: 'storeView',
+      component: StoreView
     },
     {
       path: '/exampleView',
