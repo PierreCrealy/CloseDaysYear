@@ -18,7 +18,7 @@ console.log(store.items);
 
       <!-- Name -->
       <div class="sm:col-span-2">
-        <label for="year" class="block text-sm font-medium leading-6 text-gray-900">
+        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">
           <span class="text-sm text-gray-600">Name : {{name}}</span>
         </label>
         <div class="mt-2">
@@ -31,26 +31,26 @@ console.log(store.items);
 
       <!-- Count -->
       <div class="sm:col-span-2">
-        <label for="year" class="block text-sm font-medium leading-6 text-gray-900">
+        <label for="count" class="block text-sm font-medium leading-6 text-gray-900">
           <span class="text-sm text-gray-600">Count : {{count}}</span>
         </label>
         <div class="mt-2">
           <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
             <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">closeDaysYear.fr/</span>
-            <input v-model="count" type="number" name="name" id="name" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
+            <input v-model="count" type="number" name="count" id="count" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
           </div>
         </div>
       </div>
 
       <!-- Price -->
       <div class="sm:col-span-2">
-        <label for="year" class="block text-sm font-medium leading-6 text-gray-900">
+        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">
           <span class="text-sm text-gray-600">Price : {{price}}</span>
         </label>
         <div class="mt-2">
           <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
             <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">closeDaysYear.fr/</span>
-            <input v-model="price" type="number" name="name" id="name" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
+            <input v-model="price" type="number" name="price" id="price" autocomplete="" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
           </div>
         </div>
       </div>
